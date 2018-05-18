@@ -60,6 +60,7 @@ public interface TweetSammlung {
 	 * Erstellt eine neue Implementierung von TweetSammlung
 	 */
 	static TweetSammlung create() {
-		throw new UnsupportedOperationException();
+		// gibt nur eine neue Instanz der implementierten Klasse zurueck
+		return new TweetSammplungImpl();
 	}
 }
