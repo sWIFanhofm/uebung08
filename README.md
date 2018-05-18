@@ -1,7 +1,7 @@
 _Übungsaufgabe zur Veranstaltung [Programmieren 2](https://hsro-wif-prg2.github.io) im [Bachelorstudiengang Wirtschaftsinformatik](https://www.fh-rosenheim.de/technik/informatik-mathematik/wirtschaftsinformatik-bachelor/) an der [Hochschule Rosenheim](http://www.fh-rosenheim.de)._
 
 
-# Übung 7: Listen, Sets und Maps
+# Übung 8: Listen, Sets und Maps
 
 In dieser Übung verwenden Sie die Interfaces `List<T>`, `Set<T>`, `Map<K, V>` sowie das inner Interface `Map.Entry<K, V>`, welche alle in `java.util` eingeordnet sind.
 Mit Hilfe von `Iterator<T>`, welcher von Containerklassen bereit gestellt wird, die `Iterable<T>` implementieren (z.B. `LinkedList<T>`, `TreeSet<T>`), berechnen Sie Statistiken über Tweets, am Beispiel einer prominenten Person.
@@ -9,15 +9,15 @@ Mit Hilfe von `Iterator<T>`, welcher von Containerklassen bereit gestellt wird, 
 
 ## Ziel dieser Aufgabe
 
-Zunaechst werden nach und nach Tweets (`String`s) indiziert, um auszuzaehlen, welches Wort wie oft vorkommt.
-Aufbauend auf dieser Statistik werden nun Iteratoren erstellt, um ueber
+Zunächst werden nach und nach Tweets (`String`s) indiziert, um auszuzählen, welches Wort wie oft vorkommt.
+Aufbauend auf dieser Statistik werden nun Iteratoren erstellt, um über
 
 - das gesamte Vokabular (alphabetisch),
-- die haeufigsten Hashtags (absteigend, `#...`),
-- die haeufigsten Woerter (absteigend, quasi _Buzzwords_)
+- die häufigsten Hashtags (absteigend, `#...`),
+- die häufigsten Wörter (absteigend, quasi _Buzzwords_)
 zu iterieren.
 
-In einem letzten Schritt wird ein Iterator erstellt, welcher ueber alle Tweets iteriert, absteigend sortiert nach "Buzzwordgewicht".
+In einem letzten Schritt wird ein Iterator erstellt, welcher über alle Tweets iteriert, absteigend sortiert nach "Buzzwordgewicht".
 
 Von technischer Seite ist das Interface `TweetSammlung` zu implementieren, sowie die Factorymethode `TweetSammlung.create`.
 
@@ -30,7 +30,7 @@ Von technischer Seite ist das Interface `TweetSammlung` zu implementieren, sowie
 
 # Aufgabe 1: Klasse und Factorymethode
 
-Erstellen Sie eine neue Klasse, welche `TweetSammlung` implementiert, und aendern Sie die statische Factorymethode `TweetSammlung.create` so, dass eine neue Instanz dieser Klasse zurueckgegeben wird.
+Erstellen Sie eine neue Klasse, welche `TweetSammlung` implementiert, und ändern Sie die statische Factorymethode `TweetSammlung.create` so, dass eine neue Instanz dieser Klasse zurückgegeben wird.
 
 
 # Aufgabe 2: Tweets indizieren
@@ -38,7 +38,7 @@ Erstellen Sie eine neue Klasse, welche `TweetSammlung` implementiert, und aender
 Implementieren Sie die Methode `ingest(String tweet)`.
 Diese Methode nimmt einen String entgegen, welcher mit der statischen Methode `TweetSammlung.tokenize(String)` in eine `List<String>` umgewandelt werden kann.
 Der originale Tweet soll in einer Liste (`List<String>`) abgelegt werden.
-Fuer jedes Wort soll ein Zähler unterhalten werden, wie oft ein Wort bereits insgesamt vorgekommen ist.
+Für jedes Wort soll ein Zähler unterhalten werden, wie oft ein Wort bereits insgesamt vorgekommen ist.
 
 Diese Methoden werden Sie ausserdem brauchen:
 
@@ -62,7 +62,7 @@ Diese Methoden werden Sie außerdem brauchen:
 
 - `List<T>.sort(Comparator<T> c)`: Sortiert eine Liste mit gegebenem `Comparator`.
 - Das Interface `Map.Entry<K, V>`, welches einen Schlüssel (`.getKey()`) und einen Wert (`.getValue()`) enthält; siehe auch `Map.entrySet()`.
-- `Pair.getLeft()` und `Pair.getRight`: Gibt das linke bzw. rechte Element eines Datenpaares zurueck; `Pair<K, V>` implementiert `Map.Entry<K, V>`.
+- `Pair.getLeft()` und `Pair.getRight`: Gibt das linke bzw. rechte Element eines Datenpaares zurück; `Pair<K, V>` implementiert `Map.Entry<K, V>`.
 
 
 # Aufgabe 4: Beste Tweets
