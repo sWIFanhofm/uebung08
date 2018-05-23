@@ -67,7 +67,24 @@ public class TweetSammlungImpl implements TweetSammlung{
 
     @Override
     public Iterator<String> topWords() {
-        return null;
+        List<Map.Entry<String, Integer>> hl = new LinkedList<>();
+        for(Map.Entry<String, Integer> e : counter.entrySet()){
+            if(Character.isAlphabetic(e.getKey().charAt(0)))
+                hl.add(e);
+        }
+
+        hl.sort(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return Integer.compare(o2.getValue(), o1.getValue());
+            }
+        });
+
+        List<String> hll = new LinkedList<>();
+        for(Map.Entry<String, Integer> e : hl)
+            hll.add(e.getKey());
+
+        return hll.iterator();
     }
 
     @Override
