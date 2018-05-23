@@ -30,12 +30,39 @@ public class TweetSammlungImpl implements TweetSammlung{
 
     @Override
     public Iterator<String> vocabIterator() {
-        return null;
+        List<String> words = new LinkedList<>();
+        words.addAll(counter.keySet());
+
+        words.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        return words.iterator();
     }
 
     @Override
     public Iterator<String> topHashTags() {
-        return null;
+        List<Map.Entry<String, Integer>> hl = new LinkedList<>();
+        for(Map.Entry<String, Integer> e : counter.entrySet()){
+            if(e.getKey().startsWith("#"))
+                hl.add(e);
+        }
+
+        hl.sort(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return Integer.compare(o2.getValue(), o1.getValue());
+            }
+        });
+
+        List<String> hll = new LinkedList<>();
+        for(Map.Entry<String, Integer> e : hl)
+            hll.add(e.getKey());
+
+        return hll.iterator();
     }
 
     @Override
